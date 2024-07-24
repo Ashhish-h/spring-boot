@@ -15,4 +15,16 @@ public class FunRestController {
     public String sayHello(){
         return "Hello World!";
     }
+
+    // creating another route to test devtools auto reload feature
+    @GetMapping("/test")
+    public String testingDevTools(){
+        return "Dev Tool is working fine!";
+    }
+
+    //creating another test function
+    @GetMapping("/info")
+    public String getInfo(){
+        return "This is a demo project only for learning purpose";
+    }
 }
