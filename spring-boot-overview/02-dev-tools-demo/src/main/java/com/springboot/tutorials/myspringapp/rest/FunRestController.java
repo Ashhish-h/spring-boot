@@ -23,7 +23,7 @@ public class FunRestController {
     }
 
     //creating another test function
-    @GetMapping("/info")
+    @GetMapping("/information")
     public String getInfo(){
         return "This is a demo project only for learning purpose";
     }
