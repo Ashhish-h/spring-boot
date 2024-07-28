@@ -48,7 +48,8 @@ public class FunRestController {
 
     @GetMapping("/project-info")
     public String projectInfo(){
-        return "project name : " + projectNname + "project team leader : " + teamLeader + "project's platform : "
-                + platform + "project idea : " + projectIdea;
+        return "project name : " + projectNname + ", " +"project team leader : "  + teamLeader + ", " +
+                "project's platform : "  + platform + ", " + "project idea : " + projectIdea;
+
     }
 }
