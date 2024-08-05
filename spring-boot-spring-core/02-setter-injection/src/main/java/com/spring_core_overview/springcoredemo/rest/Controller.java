@@ -10,12 +10,11 @@ public class Controller {
     private Coach myCoach;
 
     /*
-       @Autowired tells spring-boot to inject dependency. If there is only one constructor then this annotation
-       is optional.
-       Autowired automatically injects dependencies by searching them in the default package
-       */
+        Now we are going to use setter injection for this myCoach property.
+        you can use any method name in place of setCoach(setter method) spring will handle it automatically.
+     */
     @Autowired
-    public Controller (Coach myCoach){
+    public void setCoach(Coach myCoach){
         this.myCoach = myCoach;
     }
 
