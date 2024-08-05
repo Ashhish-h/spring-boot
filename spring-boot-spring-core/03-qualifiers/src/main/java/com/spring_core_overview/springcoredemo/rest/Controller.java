@@ -1,5 +1,6 @@
 package com.spring_core_overview.springcoredemo;
 
+import com.spring_core_overview.springcoredemo.common.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,12 +11,11 @@ public class Controller {
     private Coach myCoach;
 
     /*
-        Now we are going to use setter injection for this myCoach property.
-        you can use any method name in place of setCoach(setter method) spring will handle it automatically.
+        for this qualifiers we will use constructor injection
      */
     @Autowired
-    public void setCoach(Coach myCoach){
-        this.myCoach = myCoach;
+    public Controller(Coach theCoach){
+        this.myCoach = theCoach;
     }
 
     // creating an endpoint coachTips
