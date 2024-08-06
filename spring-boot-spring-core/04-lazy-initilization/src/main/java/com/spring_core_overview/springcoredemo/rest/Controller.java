@@ -11,26 +11,7 @@ public class Controller {
 
     private Coach myCoach;
 
-    /*
-        for this qualifiers we will use constructor injection.
-        by using qualifiers we specifically tells the spring which bean is to be injected.
-        @Quaifier should be inside the parameters of the constructor or setter.
-     */
 
-    // this was the qualifier example
-    /*
-         @Autowired
-        public Controller( @Qualifier("cricketCoach") Coach theCoach){
-            this.myCoach = theCoach;
-        }
-     */
-
-
-
-    /*
-        Now this will be the primary example in this we don't have to use qualifier but qualifier is more preffered
-        since it has a high priority and it is more specific
-     */
     @Autowired
     public Controller(Coach theCoach){
         this.myCoach = theCoach;
