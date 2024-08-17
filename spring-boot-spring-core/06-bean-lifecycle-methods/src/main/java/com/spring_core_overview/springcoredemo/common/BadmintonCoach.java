@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 // This @Component annotation marks the class as spring beans class
 
 @Component
-public class BadmintonCoach implements Coach {
+public class  BadmintonCoach implements Coach {
 
 
     @Override
