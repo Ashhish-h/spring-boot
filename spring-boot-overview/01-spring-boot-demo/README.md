@@ -80,12 +80,7 @@ Usage: This starter is designed to make testing easier by providing all the nece
 
 These dependencies help streamline the development and testing processes in Spring Boot, allowing you to focus more on writing your business logic and less on configuration and setup.
 
-
-# what is rest controller
-
-Based on the search results, here is a concise answer on what a RestController is and how it differs from a traditional Spring Controller:
-
-## What is a RestController?
+# What is a RestController?
 
 @RestController is a specialized annotation in Spring Framework that combines the functionality of @Controller and @ResponseBody. It marks a class as a request handling component specifically designed for creating RESTful web services. When a method in a @RestController class returns a value, Spring automatically assumes it as the response body, eliminating the need for additional annotations like @ResponseBody.
 
