@@ -13,7 +13,7 @@ public class Controller {
 
 
     @Autowired
-    public Controller(@Qualifier("badmintonCoach") Coach theCoach) {
+    public Controller(@Qualifier("swimCoach") Coach theCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         this.myCoach = theCoach;
     }
