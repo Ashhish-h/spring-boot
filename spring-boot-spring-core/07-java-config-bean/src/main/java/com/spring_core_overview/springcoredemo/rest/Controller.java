@@ -13,17 +13,15 @@ public class Controller {
 
 
     @Autowired
-    public Controller( @Qualifier("badmintonCoach") Coach theCoach){
+    public Controller(@Qualifier("badmintonCoach") Coach theCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         this.myCoach = theCoach;
     }
 
 
-
-
     // creating an endpoint coachTips
     @GetMapping("/coachTips")
-    public String getWorkOutTips(){
+    public String getWorkOutTips() {
         return myCoach.dailyWorkOut() + " and also " + myCoach.dailyPractice();
     }
 

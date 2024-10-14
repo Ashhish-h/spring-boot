@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /*
-	By default, @SpringBootApplication search for the dependencies, but within the same class to make it search outside
+	By default, @SpringBootApplication search for the dependencies, but within the same package to make it search outside
 	the default we need to use @SpringBootApplication(scanBasePackage="package name")
  */
 @SpringBootApplication
