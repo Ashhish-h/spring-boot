@@ -32,4 +32,9 @@ public class StudentDAOImp implements StudentDao{
     public void save(Student student) {
         entityManager.persist(student);   // persist is a method in EntityManager which is used to save a new entity in the database
     }
+
+    @Override
+    public Student findById(Integer id) { // Id is the primary key.
+        return entityManager.find(Student.class, id); // This is the method in entityManager which takes the class name and primary key
+    }
 }
