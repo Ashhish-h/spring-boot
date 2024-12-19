@@ -1,5 +1,7 @@
 package com.springboot.crudoperationsdemo;
 
+import com.springboot.crudoperationsdemo.dao.StudentDAOImp;
+import com.springboot.crudoperationsdemo.entity.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,10 +21,22 @@ public class CrudoperationsdemoApplication {
 		 add the configuration in the application.properties file
 	 */
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args) {
+	public CommandLineRunner commandLineRunner(StudentDAOImp studentDAO) { // in place of String[] args we pass our entity  or repository class
 
 		return runner -> {
-			System.out.println("Hello World");
+			createStudent(studentDAO);
 		};
+	}
+
+	private void createStudent(StudentDAOImp studentDAO) {
+		// creating a student
+		System.out.println("Creating student...");
+		Student student = new Student("Ashish", "Kushwaha", "ashish@gmail.com");
+
+		// saving the student
+		studentDAO.save(student);
+
+		// displaying
+		System.out.println(student.getId());
 	}
 }
