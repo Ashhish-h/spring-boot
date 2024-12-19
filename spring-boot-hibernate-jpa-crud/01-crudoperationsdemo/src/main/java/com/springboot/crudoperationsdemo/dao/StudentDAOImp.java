@@ -21,6 +21,12 @@ public class StudentDAOImp implements StudentDao{
         this.entityManager = entityManager;
     }
 
+    /*
+        If the transaction is successful, the changes will be committed to the database.
+        If an error occurs and the transaction is rolled back, the changes will not be persisted in the database.
+        The @Transactional annotation can be applied at the class level or method level.
+        It provides data reliability and consistency.
+     */
     @Override
     @Transactional
     public void save(Student student) {
