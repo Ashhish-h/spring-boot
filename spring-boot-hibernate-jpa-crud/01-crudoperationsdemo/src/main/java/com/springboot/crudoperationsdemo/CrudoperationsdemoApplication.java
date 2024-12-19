@@ -24,9 +24,16 @@ public class CrudoperationsdemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAOImp studentDAO) { // in place of String[] args we pass our entity  or repository class
 
 		return runner -> {
-			createStudent(studentDAO);
-			createMultipleStudent(studentDAO);
+//			createStudent(studentDAO);
+//			createMultipleStudent(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAOImp studentDAO) {
+		// finding students
+		System.out.println(studentDAO.findById(3));
+		System.out.println(studentDAO.findById(4));
 	}
 
 	private void createMultipleStudent(StudentDAOImp studentDAO) {
