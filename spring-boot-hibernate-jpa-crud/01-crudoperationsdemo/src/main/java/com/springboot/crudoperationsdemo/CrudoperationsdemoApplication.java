@@ -25,13 +25,31 @@ public class CrudoperationsdemoApplication {
 
 		return runner -> {
 			createStudent(studentDAO);
+			createMultipleStudent(studentDAO);
 		};
+	}
+
+	private void createMultipleStudent(StudentDAOImp studentDAO) {
+		// creating multiple students
+		Student student1 = new Student("Anjali", "Kushwaha", "anjali@gmail.com");
+		Student student2 = new Student("Abhishek", "Kushwaha", "abhishek@gmail.com");
+		Student student3 = new Student("Deepak", "Pandey", "deepak@gmail.com");
+
+		// saving the students
+		studentDAO.save(student1);
+		studentDAO.save(student2);
+		studentDAO.save(student3);
+
+		// displaying saved msg and ID
+		System.out.println("Student1 id: " + student1.getId());
+		System.out.println("Student2 id: " + student2.getId());
+		System.out.println("Student3 id: " + student3.getId());
 	}
 
 	private void createStudent(StudentDAOImp studentDAO) {
 		// creating a student
 		System.out.println("Creating student...");
-		Student student = new Student("Ashish", "Kushwaha", "ashish@gmail.com");
+		Student student 	= new Student("Ashish", "Kushwaha", "ashish@gmail.com");
 
 		// saving the student
 		studentDAO.save(student);
