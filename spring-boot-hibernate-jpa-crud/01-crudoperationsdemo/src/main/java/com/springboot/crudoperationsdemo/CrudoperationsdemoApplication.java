@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CrudoperationsdemoApplication {
 
@@ -24,10 +26,40 @@ public class CrudoperationsdemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAOImp studentDAO) { // in place of String[] args we pass our entity  or repository class
 
 		return runner -> {
-//			createStudent(studentDAO);
-//			createMultipleStudent(studentDAO);
-			readStudent(studentDAO);
+			createStudent(studentDAO);
+			createMultipleStudent(studentDAO);
+//			readStudent(studentDAO);
+//			readAll(studentDAO);
+//			readByLastName(studentDAO);
+			updateStudent(studentDAO);
+
 		};
+	}
+
+	private void updateStudent(StudentDAOImp studentDAO) {
+		// retrieving student form the data base which we have to update
+		int studentId = 1;
+		Student student = studentDAO.findById(studentId);
+		// changing the first name of the student with Id 1
+		student.setFirstName("Ankita");
+		student.setEmail("ankita@gmail.com");
+		//updating the student
+		studentDAO.update(student);
+		// printing the updated student
+		System.out.println("Updated student: " + student);
+
+	}
+
+	private void readByLastName(StudentDAOImp studentDAO) {
+		List<Student> student = studentDAO.findByLastName("Pandey");
+		System.out.println(student);
+	}
+
+	private void readAll(StudentDAOImp studentDAO) {
+		List<Student> students = studentDAO.findAll();
+		for(Student student : students) {
+			System.out.println(student);
+		}
 	}
 
 	private void readStudent(StudentDAOImp studentDAO) {
