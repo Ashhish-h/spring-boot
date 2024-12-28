@@ -26,14 +26,27 @@ public class CrudoperationsdemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAOImp studentDAO) { // in place of String[] args we pass our entity  or repository class
 
 		return runner -> {
-			createStudent(studentDAO);
-			createMultipleStudent(studentDAO);
+//			createStudent(studentDAO);
+//			createMultipleStudent(studentDAO);
 //			readStudent(studentDAO);
 //			readAll(studentDAO);
 //			readByLastName(studentDAO);
-			updateStudent(studentDAO);
+//			updateStudent(studentDAO);
+//			removeStudent(studentDAO);
+			removeAllStudent(studentDAO);
 
 		};
+	}
+
+	private void removeAllStudent(StudentDAOImp studentDAO) {
+		int rowsDeleted = studentDAO.removeAll();
+		System.out.println(rowsDeleted);
+	}
+
+	private void removeStudent(StudentDAOImp studentDAO) {
+		int studentId = 2;
+		studentDAO.remove(studentId);
+		System.out.println("removed");
 	}
 
 	private void updateStudent(StudentDAOImp studentDAO) {
