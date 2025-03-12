@@ -230,3 +230,104 @@ properties -
     CRUD operations (Create, Read, Update, Delete) are easily handled using Spring Data JPA’s JpaRepository.
     Proper configuration of the database (MySQL in this case) is key to successfully running your application.
     This covers everything you need to get started with Spring Boot and Hibernate/JPA for CRUD operations.
+
+## DTO
+The UserRegistrationDTO in the example is a Data Transfer Object (DTO) that serves as a simplified object to carry data between processes, specifically between the client and server during user registration. It is not an entity tied to the database but rather a structure used to collect and validate the data input by the user during the signup process.
+
+Purpose of UserRegistrationDTO:
+Data Transfer: It allows you to collect input data (like name, email, password, role, etc.) from the signup form and transfer it to the service layer.
+Validation: You can add validation logic for fields (like checking if email is valid, password strength, etc.).
+Decoupling: It decouples the internal entity (User, Patient, Doctor) from external user input, which improves security and flexibility.
+Example of UserRegistrationDTO:
+   public class UserRegistrationDTO {
+   private String name;
+   private String email;
+   private String password;
+   private String role; // Either "patient" or "doctor"
+   private String mobileNo;
+   
+       // Patient-specific fields
+       private Integer age; // Patient's age
+   
+       // Doctor-specific fields
+       private Integer experience; // Doctor's experience
+       private String clinic; // Doctor's associated clinic
+   
+       // Constructors, Getters, and Setters
+   
+       public UserRegistrationDTO() {}
+   
+       // Getters and setters for all fields
+       public String getName() {
+           return name;
+       }
+   
+       public void setName(String name) {
+           this.name = name;
+       }
+   
+       public String getEmail() {
+           return email;
+       }
+   
+       public void setEmail(String email) {
+           this.email = email;
+       }
+   
+       public String getPassword() {
+           return password;
+       }
+   
+       public void setPassword(String password) {
+           this.password = password;
+       }
+   
+       public String getRole() {
+           return role;
+       }
+   
+       public void setRole(String role) {
+           this.role = role;
+       }
+   
+       public String getMobileNo() {
+           return mobileNo;
+       }
+   
+       public void setMobileNo(String mobileNo) {
+           this.mobileNo = mobileNo;
+       }
+   
+       public Integer getAge() {
+           return age;
+       }
+   
+       public void setAge(Integer age) {
+           this.age = age;
+       }
+   
+       public Integer getExperience() {
+           return experience;
+       }
+   
+       public void setExperience(Integer experience) {
+           this.experience = experience;
+       }
+   
+       public String getClinic() {
+           return clinic;
+       }
+   
+       public void setClinic(String clinic) {
+           this.clinic = clinic;
+       }
+`}
+
+### How UserRegistrationDTO is used:
+The data from the signup form (which includes role-based fields) is collected into this DTO.
+The UserController then passes this DTO to the UserService to handle user registration, which determines whether the user is a patient or a doctor and stores the relevant data in the respective entities (Patient, Doctor).
+
+### Example Flow:
+A user fills out the signup form.
+The form data (name, email, password, role, mobileNo, etc.) is mapped to the UserRegistrationDTO.
+This DTO is passed to the service layer (UserService) where the appropriate logic (saving to PatientRepository or DoctorRepository) is executed based on the user's role.
